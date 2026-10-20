@@ -2,7 +2,7 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#7a2132" />
     <meta
       name="description"
@@ -10,6 +10,8 @@
     />
     <title>Gửi em — Ngày 20/10</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>" />
+    <link rel="preload" as="image" href="./assets/garden-letter.png" media="(min-width: 621px)" />
+    <link rel="preload" as="image" href="./assets/garden-letter-mobile.png" media="(max-width: 620px)" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -41,7 +43,7 @@
     </div>
 
     <main id="main-content">
-      <section class="hero" aria-labelledby="heroTitle">
+      <section class="hero" id="hero-top" aria-labelledby="heroTitle">
         <div class="hero-image" aria-hidden="true"></div>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-nav page-shell">
@@ -144,7 +146,15 @@
             </p>
           </div>
 
-          <div class="memory-cards">
+          <div class="carousel-bar memory-carousel-bar">
+            <span>Vuốt để xem từng điều nhỏ</span>
+            <div>
+              <button class="carousel-button" type="button" data-carousel="memory" data-direction="prev" aria-label="Xem thẻ trước">←</button>
+              <button class="carousel-button" type="button" data-carousel="memory" data-direction="next" aria-label="Xem thẻ tiếp theo">→</button>
+            </div>
+          </div>
+
+          <div class="memory-cards" id="memoryCarousel">
             <article class="memory-card memory-card--1 reveal">
               <span class="tape" aria-hidden="true"></span>
               <small>01 / BUỔI SÁNG</small>
@@ -218,7 +228,14 @@
           <p class="eyebrow">Một khu vườn dành cho em</p>
           <h2 id="galleryTitle">Mỗi cánh hoa là một<br />lời chúc thật dịu dàng.</h2>
         </div>
-        <div class="gallery-collage page-shell">
+        <div class="carousel-bar gallery-carousel-bar page-shell">
+          <span>Chạm mũi tên hoặc vuốt ảnh</span>
+          <div>
+            <button class="carousel-button" type="button" data-carousel="gallery" data-direction="prev" aria-label="Xem ảnh trước">←</button>
+            <button class="carousel-button" type="button" data-carousel="gallery" data-direction="next" aria-label="Xem ảnh tiếp theo">→</button>
+          </div>
+        </div>
+        <div class="gallery-collage page-shell" id="galleryCarousel">
           <figure class="photo-panel photo-panel--wide reveal">
             <div class="photo-crop photo-crop--1" role="img" aria-label="Hoa hồng và hoa cánh bướm dưới nắng chiều"></div>
             <figcaption><span>01</span> Cho những ngày em rực rỡ</figcaption>
@@ -256,7 +273,7 @@
         </div>
       </section>
 
-      <section class="notes-section section" aria-labelledby="notesTitle">
+      <section class="notes-section section" id="loi-nhan" aria-labelledby="notesTitle">
         <div class="page-shell notes-grid">
           <div class="notes-intro reveal">
             <p class="eyebrow eyebrow--light">Bốn mảnh giấy nhỏ</p>
@@ -282,7 +299,7 @@
         </div>
       </section>
 
-      <section class="wish-section section" aria-labelledby="wishTitle">
+      <section class="wish-section section" id="loi-chuc-cuoi" aria-labelledby="wishTitle">
         <div class="page-shell wish-inner reveal">
           <span class="wish-flower" aria-hidden="true">✽</span>
           <p class="eyebrow">Và cuối cùng...</p>
@@ -310,6 +327,25 @@
         <span>20 · 10 · 2026</span>
       </div>
     </footer>
+
+    <nav class="mobile-dock" aria-label="Điều hướng nhanh trên điện thoại">
+      <a class="is-active" href="#hero-top">
+        <span aria-hidden="true">⌂</span>
+        <small>Đầu trang</small>
+      </a>
+      <a href="#loi-chuc">
+        <span aria-hidden="true">✉</span>
+        <small>Lá thư</small>
+      </a>
+      <a href="#dieu-anh-thuong">
+        <span aria-hidden="true">✦</span>
+        <small>Kỷ niệm</small>
+      </a>
+      <a href="#loi-chuc-cuoi">
+        <span aria-hidden="true">♥</span>
+        <small>Lời chúc</small>
+      </a>
+    </nav>
 
     <div class="petal-field" id="petalField" aria-hidden="true"></div>
     <script src="./script.js"></script>

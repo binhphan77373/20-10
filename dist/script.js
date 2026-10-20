@@ -9,6 +9,8 @@ const noteIndex = document.querySelector("#noteIndex");
 const noteTitle = document.querySelector("#noteTitle");
 const noteCopy = document.querySelector("#noteCopy");
 const noteTabs = [...document.querySelectorAll(".note-tab")];
+const carouselButtons = [...document.querySelectorAll(".carousel-button")];
+const mobileDockLinks = [...document.querySelectorAll(".mobile-dock a")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.body.classList.add("gate-open");
@@ -96,6 +98,52 @@ noteTabs.forEach((tab, index) => {
     const nextIndex = (index + step + noteTabs.length) % noteTabs.length;
     selectNote(nextIndex);
     noteTabs[nextIndex].focus();
+  });
+});
+
+carouselButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const carousel = document.querySelector(`#${button.dataset.carousel}Carousel`);
+    const item = carousel.querySelector(".memory-card, .photo-panel, .gallery-quote");
+    if (!item) return;
+
+    const styles = window.getComputedStyle(carousel);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap) || 16;
+    const direction = button.dataset.direction === "next" ? 1 : -1;
+    carousel.scrollBy({
+      left: direction * (item.getBoundingClientRect().width + gap),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  });
+});
+
+const dockTargets = mobileDockLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+const dockObserver = new IntersectionObserver(
+  (entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+
+    mobileDockLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${visible.target.id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  },
+  { rootMargin: "-28% 0px -58%", threshold: [0, 0.1, 0.4] },
+);
+
+dockTargets.forEach((section) => dockObserver.observe(section));
+
+mobileDockLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileDockLinks.forEach((item) => item.classList.remove("is-active"));
+    link.classList.add("is-active");
   });
 });
 

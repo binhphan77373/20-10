@@ -175,3 +175,139 @@ wishButton.addEventListener("click", () => {
     Array.from({ length: 52 }, (_, index) => index).forEach((index) => createPetal(index));
   }
 });
+
+
+// Use the original files so that the full-screen viewer never crops a memory.
+const albumPhotos = [
+  {
+    "file": "564535032027a079f93613.jpg",
+    "caption": "Một chút bình yên, một người anh thương.",
+    "alt": "Hai đứa nắm tay bên biển dưới bầu trời xanh"
+  },
+  {
+    "file": "98f5212f340bb455ed1a7.jpg",
+    "caption": "Đi cùng nhau, ngắm cùng một bầu trời.",
+    "alt": "Hai đứa selfie trước khung cảnh biển và núi"
+  },
+  {
+    "file": "79aed76dc24942171b584.jpg",
+    "caption": "Có em, chuyến đi nào cũng đáng nhớ.",
+    "alt": "Hai đứa trên mặt nước xanh"
+  },
+  {
+    "file": "50a3207b355fb501ec4e6.jpg",
+    "caption": "Nụ cười anh muốn nhìn thấy mỗi ngày.",
+    "alt": "Em mặc áo vàng nhạt ở quán cà phê"
+  },
+  {
+    "file": "34b0966a834e03105a5f5.jpg",
+    "caption": "Gần thêm một chút, thương thêm thật nhiều.",
+    "alt": "Hai đứa tựa vào nhau chụp ảnh selfie"
+  },
+  {
+    "file": "9603795d6c79ec27b56816.jpg",
+    "caption": "Bốn khung hình, thật nhiều yêu thương.",
+    "alt": "Dải photobooth bốn khung ảnh đôi"
+  },
+  {
+    "file": "e2349b728e560e08574715.jpg",
+    "caption": "Những cái ôm được giữ lại trong ảnh.",
+    "alt": "Dải photobooth của hai đứa với những cái ôm"
+  },
+  {
+    "file": "b9e40c3e191a9944c00b9.jpg",
+    "caption": "Lại thêm một tấm hình có hai đứa.",
+    "alt": "Hai đứa mỉm cười với biển phía sau"
+  },
+  {
+    "file": "91ce9f168a320a6c53238.jpg",
+    "caption": "Bên nhau, trước một khoảng trời rộng.",
+    "alt": "Hai đứa chụp ảnh với biển và thành phố phía xa"
+  },
+  {
+    "file": "d69ddd45c861483f117010.jpg",
+    "caption": "Cô gái khiến mọi khung hình dịu dàng hơn.",
+    "alt": "Em đội nón lá đứng cạnh chiếc xe đạp"
+  },
+  {
+    "file": "e82979ea6cceec90b5df2.jpg",
+    "caption": "Đáng yêu cả những lúc mình nghịch ngợm.",
+    "alt": "Ảnh selfie hai đứa với hiệu ứng mũ vàng vui nhộn"
+  },
+  {
+    "file": "520216c103e583bbdaf41.jpg",
+    "caption": "Chụp thêm một tấm thật ngốc nghếch nhé.",
+    "alt": "Ảnh selfie hai đứa với hiệu ứng vui nhộn"
+  },
+  {
+    "file": "1f3b58f84ddccd8294cd3.jpg",
+    "caption": "Cứ vô tư như khi ở cạnh nhau.",
+    "alt": "Hai đứa chụp ảnh với hiệu ứng trái ổi"
+  },
+  {
+    "file": "1f1e7158647ce422bd6d14.jpg",
+    "caption": "Một bờ vai, một chỗ dựa.",
+    "alt": "Hai đứa tựa vai nhau trong một tấm ảnh gần"
+  },
+  {
+    "file": "b052e214f730776e2e2112.jpg",
+    "caption": "Có những điều nhỏ xíu cũng đáng giữ lại.",
+    "alt": "Khoảnh khắc hai đứa bên nhau trước gương"
+  }
+];
+const photoViewer = document.querySelector("#photoViewer");
+const viewerImage = document.querySelector("#viewerImage");
+const viewerCount = document.querySelector("#viewerCount");
+const viewerCaption = document.querySelector("#viewerCaption");
+let currentPhoto = 0;
+
+function showPhoto(index) {
+  currentPhoto = (index + albumPhotos.length) % albumPhotos.length;
+  const photo = albumPhotos[currentPhoto];
+  viewerImage.src = `./images/${photo.file}`;
+  viewerImage.alt = photo.alt;
+  viewerCaption.textContent = photo.caption;
+  viewerCount.textContent = `${String(currentPhoto + 1).padStart(2, "0")} / ${albumPhotos.length}`;
+}
+
+document.querySelectorAll("[data-photo]").forEach((button) => {
+  button.addEventListener("click", () => {
+    showPhoto(Number(button.dataset.photo));
+    document.body.classList.add("viewer-open");
+    photoViewer.showModal();
+  });
+});
+
+document.querySelector("#closeViewer").addEventListener("click", () => photoViewer.close());
+photoViewer.addEventListener("close", () => document.body.classList.remove("viewer-open"));
+document.querySelector("#previousPhoto").addEventListener("click", () => showPhoto(currentPhoto - 1));
+document.querySelector("#nextPhoto").addEventListener("click", () => showPhoto(currentPhoto + 1));
+photoViewer.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    photoViewer.close();
+    return;
+  }
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    event.preventDefault();
+    showPhoto(currentPhoto + (event.key === "ArrowRight" ? 1 : -1));
+  }
+});
+
+let swipeStart = null;
+const viewerStage = document.querySelector(".viewer-stage");
+viewerStage.addEventListener("touchstart", (event) => {
+  swipeStart = event.touches.length === 1
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+    : null;
+}, { passive: true });
+viewerStage.addEventListener("touchend", (event) => {
+  if (!swipeStart || !event.changedTouches.length) return;
+  const dx = event.changedTouches[0].clientX - swipeStart.x;
+  const dy = event.changedTouches[0].clientY - swipeStart.y;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+    showPhoto(currentPhoto + (dx < 0 ? 1 : -1));
+  }
+  swipeStart = null;
+}, { passive: true });
+viewerStage.addEventListener("touchcancel", () => { swipeStart = null; }, { passive: true });

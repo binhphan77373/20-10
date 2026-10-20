@@ -10,12 +10,12 @@
     />
     <title>Gửi em — Ngày 20/10</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>" />
-    <link rel="preload" as="image" href="./assets/garden-letter.png" media="(min-width: 621px)" />
-    <link rel="preload" as="image" href="./assets/garden-letter-mobile.png" media="(max-width: 620px)" />
+    <link rel="preload" as="image" href="./images/564535032027a079f93613.jpg" />
     <script>
       document.documentElement.classList.add("js");
     </script>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./photos.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Bỏ qua phần mở đầu</a>
@@ -43,19 +43,20 @@
     </div>
 
     <main id="main-content">
-      <section class="hero" id="hero-top" aria-labelledby="heroTitle">
+      <section class="hero personal-hero" id="hero-top" aria-labelledby="heroTitle">
         <div class="hero-image" aria-hidden="true"></div>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-nav page-shell">
           <a class="monogram" href="#main-content" aria-label="Về đầu trang">M</a>
           <nav class="hero-links" aria-label="Điều hướng chính">
             <a href="#loi-chuc">Lá thư</a>
-            <a href="#dieu-anh-thuong">Điều anh thương</a>
+            <a href="#album">Album hai đứa</a>
             <a href="#loi-hua">Lời hứa</a>
           </nav>
           <span class="hero-date">Thứ Ba, 20 tháng 10</span>
         </div>
-        <div class="hero-content page-shell reveal">
+        <div class="personal-hero-grid page-shell">
+        <div class="hero-content reveal">
           <p class="eyebrow eyebrow--light">Gửi người anh thương</p>
           <h1 id="heroTitle">Ngày hôm nay<br />dịu dàng như <em>em.</em></h1>
           <p class="hero-lead">
@@ -66,6 +67,21 @@
             Đọc lá thư của anh
             <span aria-hidden="true">↓</span>
           </a>
+        </div>
+        <div class="hero-keepsake reveal">
+          <figure class="hero-polaroid">
+            <button class="photo-open" type="button" data-photo="0" aria-label="Xem ảnh hai đứa bên biển đầy đủ">
+              <img src="./images/564535032027a079f93613.jpg" width="1536" height="2048" alt="Hai đứa nắm tay bên biển dưới bầu trời xanh" fetchpriority="high" />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption>nơi bình yên là bên em <span aria-hidden="true">♡</span></figcaption>
+          </figure>
+          <figure class="hero-mini-photo" aria-hidden="true">
+            <img src="./images/50a3207b355fb501ec4e6.jpg" width="1388" height="2047" alt="" decoding="async" />
+            <figcaption>my favourite person</figcaption>
+          </figure>
+          <span class="keepsake-note" aria-hidden="true">Anh &amp; em, cùng nhau.</span>
+        </div>
         </div>
         <div class="hero-stamp" aria-hidden="true">
           <span>VIỆT NAM</span>
@@ -101,6 +117,12 @@
             <div class="flower-line" aria-hidden="true">
               <span></span><i>✦</i><span></span>
             </div>
+            <figure class="letter-portrait">
+              <button class="photo-open" type="button" data-photo="3" aria-label="Xem ảnh em ở quán cà phê">
+                <img src="./images/50a3207b355fb501ec4e6.jpg" width="1388" height="2047" alt="Em mặc áo vàng nhạt, ngồi mỉm cười ở quán cà phê" loading="lazy" decoding="async" />
+              </button>
+              <figcaption>Cô gái anh luôn muốn dành những điều dịu dàng nhất.</figcaption>
+            </figure>
           </div>
           <article class="letter-copy reveal">
             <p class="dropcap">
@@ -223,13 +245,13 @@
         </div>
       </section>
 
-      <section class="gallery-section section" aria-labelledby="galleryTitle">
+      <section class="gallery-section section personal-gallery" id="album" aria-labelledby="galleryTitle">
         <div class="page-shell gallery-heading reveal">
-          <p class="eyebrow">Một khu vườn dành cho em</p>
-          <h2 id="galleryTitle">Mỗi cánh hoa là một<br />lời chúc thật dịu dàng.</h2>
+          <p class="eyebrow">Những khung hình của hai đứa</p>
+          <h2 id="galleryTitle">Đi đâu cũng được,<br />miễn là cùng <em>em.</em></h2>
         </div>
         <div class="carousel-bar gallery-carousel-bar page-shell">
-          <span>Chạm mũi tên hoặc vuốt ảnh</span>
+          <span>Vuốt để xem · Chạm để mở ảnh</span>
           <div>
             <button class="carousel-button" type="button" data-carousel="gallery" data-direction="prev" aria-label="Xem ảnh trước">←</button>
             <button class="carousel-button" type="button" data-carousel="gallery" data-direction="next" aria-label="Xem ảnh tiếp theo">→</button>
@@ -237,21 +259,105 @@
         </div>
         <div class="gallery-collage page-shell" id="galleryCarousel">
           <figure class="photo-panel photo-panel--wide reveal">
-            <div class="photo-crop photo-crop--1" role="img" aria-label="Hoa hồng và hoa cánh bướm dưới nắng chiều"></div>
-            <figcaption><span>01</span> Cho những ngày em rực rỡ</figcaption>
+            <button class="photo-open featured-photo" type="button" data-photo="1" aria-label="Mở ảnh selfie của hai đứa bên biển">
+              <img src="./images/98f5212f340bb455ed1a7.jpg" width="2048" height="1536" alt="Hai đứa selfie trước khung cảnh biển và núi" loading="lazy" decoding="async" />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><span>01</span> Cả thế giới ở phía sau, em ở ngay bên cạnh.</figcaption>
           </figure>
           <figure class="photo-panel photo-panel--tall reveal">
-            <div class="photo-crop photo-crop--2" role="img" aria-label="Những cánh hoa hồng trong khu vườn"></div>
-            <figcaption><span>02</span> Cho những lúc cần bình yên</figcaption>
+            <button class="photo-open featured-photo" type="button" data-photo="2" aria-label="Mở ảnh hai đứa trên mặt nước">
+              <img src="./images/79aed76dc24942171b584.jpg" width="1536" height="2048" alt="Hai đứa chụp ảnh trên mặt nước xanh, phía sau là núi" loading="lazy" decoding="async" />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><span>02</span> Cùng nhau, thêm một chút phiêu lưu.</figcaption>
           </figure>
           <figure class="photo-panel photo-panel--small reveal">
-            <div class="photo-crop photo-crop--3" role="img" aria-label="Giấy viết thư và hoa dưới ánh nắng ấm"></div>
-            <figcaption><span>03</span> Cho thật nhiều mùa hoa sau này</figcaption>
+            <button class="photo-open featured-photo" type="button" data-photo="4" aria-label="Mở ảnh hai đứa tựa vào nhau">
+              <img src="./images/34b0966a834e03105a5f5.jpg" width="1536" height="2048" alt="Hai đứa tựa vào nhau trong một tấm ảnh selfie gần" loading="lazy" decoding="async" />
+              <span class="photo-expand" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><span>03</span> Chỉ cần tựa vào nhau, là đủ.</figcaption>
           </figure>
           <blockquote class="gallery-quote reveal">
             <span aria-hidden="true">“</span>
-            <p>Điều đẹp nhất trong khu vườn này vẫn là nụ cười của em.</p>
+            <p>Ảnh có thể lưu trong máy. Còn em, anh giữ ở trong tim.</p>
           </blockquote>
+        </div>
+      </section>
+
+      <section class="album-section section" aria-labelledby="albumTitle">
+        <div class="page-shell">
+          <div class="album-intro reveal">
+            <div>
+              <p class="eyebrow">Nhặt nhạnh những ngày có nhau</p>
+              <h2 id="albumTitle">Một chiếc album,<br />rất nhiều <em>thương.</em></h2>
+            </div>
+            <p>Những chuyến đi, những cái ôm, cả những tấm hình nghịch ngợm.<br />Chạm vào một tấm ảnh để xem trọn khoảnh khắc nhé.</p>
+          </div>
+          <div class="album-grid">
+            <button class="album-tile " type="button" data-photo="0" aria-label="Mở ảnh 1: Hai đứa nắm tay bên biển dưới bầu trời xanh">
+              <span class="album-image"><img src="./images/564535032027a079f93613.jpg" width="1536" height="2048" alt="Hai đứa nắm tay bên biển dưới bầu trời xanh" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>01</small>Một chút bình yên, một người anh thương.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="1" aria-label="Mở ảnh 2: Hai đứa selfie trước khung cảnh biển và núi">
+              <span class="album-image"><img src="./images/98f5212f340bb455ed1a7.jpg" width="2048" height="1536" alt="Hai đứa selfie trước khung cảnh biển và núi" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>02</small>Đi cùng nhau, ngắm cùng một bầu trời.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="2" aria-label="Mở ảnh 3: Hai đứa trên mặt nước xanh">
+              <span class="album-image"><img src="./images/79aed76dc24942171b584.jpg" width="1536" height="2048" alt="Hai đứa trên mặt nước xanh" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>03</small>Có em, chuyến đi nào cũng đáng nhớ.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="3" aria-label="Mở ảnh 4: Em mặc áo vàng nhạt ở quán cà phê">
+              <span class="album-image"><img src="./images/50a3207b355fb501ec4e6.jpg" width="1388" height="2047" alt="Em mặc áo vàng nhạt ở quán cà phê" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>04</small>Nụ cười anh muốn nhìn thấy mỗi ngày.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="4" aria-label="Mở ảnh 5: Hai đứa tựa vào nhau chụp ảnh selfie">
+              <span class="album-image"><img src="./images/34b0966a834e03105a5f5.jpg" width="1536" height="2048" alt="Hai đứa tựa vào nhau chụp ảnh selfie" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>05</small>Gần thêm một chút, thương thêm thật nhiều.</span>
+            </button>
+            <button class="album-tile album-tile--strip" type="button" data-photo="5" aria-label="Mở ảnh 6: Dải photobooth bốn khung ảnh đôi">
+              <span class="album-image"><img src="./images/9603795d6c79ec27b56816.jpg" width="619" height="2047" alt="Dải photobooth bốn khung ảnh đôi" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>06</small>Bốn khung hình, thật nhiều yêu thương.</span>
+            </button>
+            <button class="album-tile album-tile--strip" type="button" data-photo="6" aria-label="Mở ảnh 7: Dải photobooth của hai đứa với những cái ôm">
+              <span class="album-image"><img src="./images/e2349b728e560e08574715.jpg" width="590" height="2047" alt="Dải photobooth của hai đứa với những cái ôm" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>07</small>Những cái ôm được giữ lại trong ảnh.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="7" aria-label="Mở ảnh 8: Hai đứa mỉm cười với biển phía sau">
+              <span class="album-image"><img src="./images/b9e40c3e191a9944c00b9.jpg" width="1536" height="2048" alt="Hai đứa mỉm cười với biển phía sau" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>08</small>Lại thêm một tấm hình có hai đứa.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="8" aria-label="Mở ảnh 9: Hai đứa chụp ảnh với biển và thành phố phía xa">
+              <span class="album-image"><img src="./images/91ce9f168a320a6c53238.jpg" width="2048" height="1536" alt="Hai đứa chụp ảnh với biển và thành phố phía xa" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>09</small>Bên nhau, trước một khoảng trời rộng.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="9" aria-label="Mở ảnh 10: Em đội nón lá đứng cạnh chiếc xe đạp">
+              <span class="album-image"><img src="./images/d69ddd45c861483f117010.jpg" width="1287" height="1953" alt="Em đội nón lá đứng cạnh chiếc xe đạp" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>10</small>Cô gái khiến mọi khung hình dịu dàng hơn.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="10" aria-label="Mở ảnh 11: Ảnh selfie hai đứa với hiệu ứng mũ vàng vui nhộn">
+              <span class="album-image"><img src="./images/e82979ea6cceec90b5df2.jpg" width="720" height="1280" alt="Ảnh selfie hai đứa với hiệu ứng mũ vàng vui nhộn" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>11</small>Đáng yêu cả những lúc mình nghịch ngợm.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="11" aria-label="Mở ảnh 12: Ảnh selfie hai đứa với hiệu ứng vui nhộn">
+              <span class="album-image"><img src="./images/520216c103e583bbdaf41.jpg" width="1080" height="1920" alt="Ảnh selfie hai đứa với hiệu ứng vui nhộn" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>12</small>Chụp thêm một tấm thật ngốc nghếch nhé.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="12" aria-label="Mở ảnh 13: Hai đứa chụp ảnh với hiệu ứng trái ổi">
+              <span class="album-image"><img src="./images/1f3b58f84ddccd8294cd3.jpg" width="1080" height="1920" alt="Hai đứa chụp ảnh với hiệu ứng trái ổi" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>13</small>Cứ vô tư như khi ở cạnh nhau.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="13" aria-label="Mở ảnh 14: Hai đứa tựa vai nhau trong một tấm ảnh gần">
+              <span class="album-image"><img src="./images/1f1e7158647ce422bd6d14.jpg" width="1020" height="1020" alt="Hai đứa tựa vai nhau trong một tấm ảnh gần" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>14</small>Một bờ vai, một chỗ dựa.</span>
+            </button>
+            <button class="album-tile " type="button" data-photo="14" aria-label="Mở ảnh 15: Khoảnh khắc hai đứa bên nhau trước gương">
+              <span class="album-image"><img src="./images/b052e214f730776e2e2112.jpg" width="1536" height="2048" alt="Khoảnh khắc hai đứa bên nhau trước gương" loading="lazy" decoding="async" /></span>
+              <span class="album-tile-caption"><small>15</small>Có những điều nhỏ xíu cũng đáng giữ lại.</span>
+            </button>
+          </div>
+          <p class="album-ending">Và còn thật nhiều trang đang chờ hai đứa mình viết tiếp. <span aria-hidden="true">♡</span></p>
         </div>
       </section>
 
@@ -337,9 +443,9 @@
         <span aria-hidden="true">✉</span>
         <small>Lá thư</small>
       </a>
-      <a href="#dieu-anh-thuong">
+      <a href="#album">
         <span aria-hidden="true">✦</span>
-        <small>Kỷ niệm</small>
+        <small>Album</small>
       </a>
       <a href="#loi-chuc-cuoi">
         <span aria-hidden="true">♥</span>
@@ -347,6 +453,18 @@
       </a>
     </nav>
 
+    <dialog class="photo-viewer" id="photoViewer" aria-labelledby="viewerTitle">
+      <div class="viewer-topbar">
+        <p id="viewerTitle">Những khung hình của hai đứa</p>
+        <button class="viewer-close" id="closeViewer" type="button" aria-label="Đóng ảnh">×</button>
+      </div>
+      <div class="viewer-stage"><img id="viewerImage" alt="" /></div>
+      <div class="viewer-bottom">
+        <button class="viewer-arrow" id="previousPhoto" type="button" aria-label="Ảnh trước">←</button>
+        <div class="viewer-description" aria-live="polite"><span id="viewerCount"></span><p id="viewerCaption"></p></div>
+        <button class="viewer-arrow" id="nextPhoto" type="button" aria-label="Ảnh tiếp theo">→</button>
+      </div>
+    </dialog>
     <div class="petal-field" id="petalField" aria-hidden="true"></div>
     <script src="./script.js"></script>
   </body>

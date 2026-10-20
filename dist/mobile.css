@@ -1,0 +1,143 @@
+/* Layout refinements for phones. Original photographs and loading are unchanged. */
+@media (max-width: 620px) {
+  :root { --shell: calc(100vw - 40px); }
+
+  body { font-size: 16px; }
+  .section { padding-block: 64px; }
+  section[id] { scroll-margin-top: calc(20px + env(safe-area-inset-top)); }
+  h2 { font-size: clamp(2.25rem, 10.5vw, 2.85rem); line-height: 1.06; }
+  .eyebrow { font-size: .64rem; line-height: 1.5; letter-spacing: .16em; }
+
+  /* Leave room for the camera cutout and the bottom navigation. */
+  .personal-hero { padding: calc(88px + env(safe-area-inset-top)) 0 calc(106px + env(safe-area-inset-bottom)); }
+  .personal-hero .hero-nav { top: calc(18px + env(safe-area-inset-top)); width: var(--shell); }
+  .personal-hero-grid { width: var(--shell); gap: 34px; }
+  .hero-keepsake { width: min(66vw, 280px); padding-bottom: 8px; }
+  .hero-polaroid figcaption { font-size: .94rem; }
+  .hero-mini-photo { right: -20px; bottom: -8px; }
+  .personal-hero .hero-content h1 { font-size: clamp(2.6rem, 12.2vw, 3.3rem); line-height: 1; letter-spacing: -.045em; }
+  .personal-hero .hero-lead { font-size: .96rem; line-height: 1.65; }
+  .personal-hero .text-link { min-height: 50px; font-size: .67rem; letter-spacing: .1em; }
+
+  /* The portrait sits beside the heading so the letter starts sooner. */
+  .letter-grid { gap: 30px; }
+  .letter-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(86px, 25vw, 112px);
+    gap: 22px 20px;
+    align-items: center;
+  }
+  .letter-heading > .eyebrow { grid-column: 1 / -1; margin: 0; }
+  .letter-heading h2 { grid-column: 1; grid-row: 2; margin: 0; font-size: clamp(1.9rem, 8vw, 2.25rem); line-height: 1.1; }
+  .letter-heading .flower-line { grid-column: 1 / -1; grid-row: 3; width: 100%; }
+  .letter-heading .letter-portrait { grid-column: 2; grid-row: 2; width: 100%; margin: 0; padding: 6px 6px 12px; transform: rotate(4deg); }
+  .letter-portrait::before { top: -8px; left: calc(50% - 23px); width: 46px; height: 19px; }
+  .letter-portrait figcaption { display: none; }
+  .letter-copy { font-size: 1.1rem; line-height: 1.85; }
+  .letter-copy p { margin-bottom: 23px; }
+  .letter-copy .dropcap { color: var(--wine); font-size: 1.18rem; line-height: 1.6; }
+  .letter-copy .dropcap::first-letter { float: none; margin: 0; font-size: inherit; line-height: inherit; }
+  .signature { margin-top: 32px; }
+  .signature strong { font-size: 2rem; }
+
+  .memory-heading { gap: 24px; margin-bottom: 28px; }
+  .memory-heading > p { font-size: .97rem; }
+  .memory-cards { gap: 14px; padding-bottom: 24px; }
+  .memory-card { min-height: 306px; padding: 35px 25px 29px; flex-basis: min(80vw, 320px); }
+  .memory-card small { margin-bottom: 35px; font-size: .59rem; }
+  .memory-card h3 { margin-bottom: 17px; font-size: 1.8rem; line-height: 1.1; }
+  .memory-card p { font-size: .93rem; line-height: 1.65; }
+  .memory-card i { top: 29px; }
+  .carousel-bar { gap: 12px; }
+  .carousel-bar > span { font-size: .62rem; letter-spacing: .08em; }
+  .carousel-button { width: 48px; height: 48px; flex: 0 0 48px; }
+  .section-intro { margin-bottom: 34px; }
+  .thing { padding-block: 26px; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
+  .thing h3 { font-size: 1.65rem; line-height: 1.15; }
+  .thing p { font-size: .96rem; line-height: 1.7; }
+
+  .gallery-heading { gap: 18px; margin-bottom: 28px; }
+  .gallery-heading .eyebrow { margin-bottom: 0; }
+  .gallery-collage { padding-inline: 20px; scroll-padding-left: 20px; align-items: flex-start; }
+  .photo-panel, .photo-panel--small, .gallery-quote { flex-basis: calc(100vw - 56px); }
+  .personal-gallery .photo-panel figcaption { padding-top: 14px; font-size: .96rem; line-height: 1.5; }
+  .personal-gallery .gallery-quote { aspect-ratio: 3 / 4; padding-inline: 28px; }
+  .gallery-quote p { font-size: 1.9rem; line-height: 1.2; }
+  .album-intro > p { font-size: .96rem; line-height: 1.7; }
+  .album-grid { gap: 20px 12px; }
+  .album-tile-caption { font-size: .87rem; line-height: 1.5; }
+  .album-tile-caption small { font-size: .56rem; }
+  .album-ending { font-size: 1.08rem; line-height: 1.65; }
+
+  .moments-grid { gap: 38px; }
+  .moments-copy h2 { margin-bottom: 23px; }
+  .moments-copy > p:last-child { font-size: .98rem; line-height: 1.7; }
+  .promise-card { min-height: 0; padding: 44px 30px 50px; }
+  .promise-card p { margin: 36px 0 0; font-size: clamp(1.7rem, 7.5vw, 2.2rem); line-height: 1.3; }
+
+  .notes-grid { gap: 32px; }
+  .notes-intro h2 { margin-bottom: 20px; }
+  .notes-intro > p:not(.eyebrow) { margin-bottom: 0; font-size: .97rem; line-height: 1.65; }
+  .note-tabs { margin-top: 24px; justify-content: flex-start; gap: 16px; }
+  .note-tab { width: 50px; height: 50px; flex: 0 0 50px; }
+  .note-paper { width: calc(100% - 8px); min-height: 385px; padding: 52px 29px 74px; }
+  .note-paper > span { margin-bottom: 27px; font-size: .58rem; }
+  .note-paper h3 { margin-bottom: 20px; font-size: clamp(2.15rem, 10vw, 2.75rem); line-height: 1.08; }
+  .note-paper p { font-size: 1.08rem; line-height: 1.7; }
+  .note-paper small { right: 28px; bottom: 29px; font-size: .91rem; }
+  .note-pin { width: 43px; height: 43px; top: -15px; border-width: 6px; }
+
+  .wish-inner > p:not(.eyebrow) { font-size: .98rem; line-height: 1.7; }
+  .wish-inner h2 { margin-bottom: 24px; }
+  .wish-button { min-height: 60px; font-size: .73rem; }
+  .final-wish.is-visible { max-height: 360px; }
+  .final-wish strong { font-size: 1.9rem; line-height: 1.25; }
+  footer { padding-block: 26px; }
+  .footer-inner { gap: 10px; font-size: .65rem; line-height: 1.6; letter-spacing: .12em; }
+
+  .mobile-dock { left: 12px; right: 12px; min-height: 66px; bottom: max(9px, env(safe-area-inset-bottom)); }
+  .mobile-dock a { min-height: 54px; gap: 5px; }
+  .mobile-dock a span { height: 18px; font-size: 1.08rem; }
+  .mobile-dock a small { font-size: .62rem; letter-spacing: .035em; }
+  .viewer-description p { font-size: 1.05rem; }
+}
+
+@media (max-width: 370px) {
+  .letter-heading { column-gap: 15px; }
+  .letter-heading h2 { font-size: 1.85rem; }
+  .letter-copy { font-size: 1.06rem; }
+  .note-tabs { gap: 13px; }
+  .note-paper { padding-inline: 25px; }
+  .mobile-dock a small { font-size: .57rem; }
+  .carousel-bar > span { font-size: .57rem; }
+}
+
+@media (max-width: 620px) and (max-height: 800px) and (orientation: portrait) {
+  .hero-keepsake { width: min(61vw, 245px); }
+  .personal-hero-grid { gap: 28px; }
+}
+
+@media (max-width: 1000px) and (max-height: 520px) and (orientation: landscape) {
+  body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  .personal-hero { min-height: 100svh; max-height: none; padding: calc(80px + env(safe-area-inset-top)) 0 78px; }
+  .personal-hero-grid { display: grid; width: min(790px, calc(100vw - 104px)); grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 38px; align-items: center; }
+  .personal-hero .hero-content .eyebrow { margin-bottom: 14px; }
+  .personal-hero .hero-content h1 { margin-bottom: 18px; font-size: 2.9rem; line-height: 1; }
+  .personal-hero .hero-lead { margin-bottom: 18px; font-size: .9rem; line-height: 1.55; }
+  .personal-hero .text-link { min-height: 48px; padding: 0 18px; border: 1px solid #f4eadd99; border-radius: 999px; }
+  .hero-keepsake { order: 0; width: min(100%, 200px); padding: 0; justify-self: end; }
+  .hero-polaroid .photo-open { aspect-ratio: 1 / 1; }
+  .hero-polaroid figcaption { min-height: 44px; font-size: .82rem; }
+  .hero-mini-photo figcaption { font-size: .5rem; }
+  .keepsake-note { display: none; }
+  .hero-mini-photo { right: -15px; }
+  .personal-hero .hero-nav { top: max(14px, env(safe-area-inset-top)); width: min(790px, calc(100vw - 104px)); }
+  .viewer-topbar { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+  .viewer-stage { padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right)); }
+  .viewer-bottom { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .mobile-dock { position: fixed; z-index: 400; display: grid; grid-template-columns: repeat(4, 1fr); left: auto; right: max(12px, env(safe-area-inset-right)); bottom: max(9px, env(safe-area-inset-bottom)); width: 310px; padding: 5px; border: 1px solid #ffffff29; border-radius: 20px; background: #3a0e19f2; }
+  .mobile-dock a { display: flex; min-height: 48px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #ffffffb3; text-decoration: none; border-radius: 15px; }
+  .mobile-dock a span { font-size: 1rem; line-height: 1; }
+  .mobile-dock a small { font-size: .58rem; }
+  .mobile-dock a.is-active { color: white; background: #e2a18f2e; }
+}

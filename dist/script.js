@@ -3,6 +3,12 @@ const openLetter = document.querySelector("#openLetter");
 const wishButton = document.querySelector("#wishButton");
 const finalWish = document.querySelector("#finalWish");
 const petalField = document.querySelector("#petalField");
+const readingProgress = document.querySelector("#readingProgress");
+const notePaper = document.querySelector("#notePaper");
+const noteIndex = document.querySelector("#noteIndex");
+const noteTitle = document.querySelector("#noteTitle");
+const noteCopy = document.querySelector("#noteCopy");
+const noteTabs = [...document.querySelectorAll(".note-tab")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.body.classList.add("gate-open");
@@ -10,6 +16,9 @@ document.body.classList.add("gate-open");
 function enterSite() {
   gate.classList.add("is-open");
   document.body.classList.remove("gate-open");
+  if (!reduceMotion) {
+    Array.from({ length: 12 }, (_, index) => index).forEach((index) => createPetal(index));
+  }
   window.setTimeout(() => {
     gate.setAttribute("aria-hidden", "true");
     document.querySelector(".hero .text-link").focus({ preventScroll: true });
@@ -30,6 +39,65 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+function updateReadingProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  readingProgress.style.width = `${progress * 100}%`;
+}
+
+window.addEventListener("scroll", updateReadingProgress, { passive: true });
+window.addEventListener("resize", updateReadingProgress);
+updateReadingProgress();
+
+const notes = [
+  {
+    title: "Khi em thấy mệt...",
+    copy: "Hãy cho phép mình nghỉ một chút. Em không cần lúc nào cũng mạnh mẽ; phần còn lại cứ để anh ôm lấy và cùng em đi qua.",
+  },
+  {
+    title: "Khi em nghi ngờ mình...",
+    copy: "Hãy nhớ rằng trong mắt anh, em luôn là một người thật tuyệt vời — không phải vì em hoàn hảo, mà vì em luôn chân thành và cố gắng.",
+  },
+  {
+    title: "Khi em vui...",
+    copy: "Hãy kể anh nghe từ điều lớn lao đến chuyện nhỏ xíu. Niềm vui của em luôn có cách làm ngày của anh sáng lên theo.",
+  },
+  {
+    title: "Khi em nhớ anh...",
+    copy: "Thì mình cứ nói là nhớ thôi. Vì ở một nơi nào đó rất gần, cũng có một người đang nhớ em nhiều hơn em nghĩ.",
+  },
+];
+
+function selectNote(selectedIndex) {
+  const note = notes[selectedIndex];
+  noteTabs.forEach((tab, index) => {
+    const isSelected = index === selectedIndex;
+    tab.classList.toggle("is-active", isSelected);
+    tab.setAttribute("aria-selected", String(isSelected));
+    tab.tabIndex = isSelected ? 0 : -1;
+  });
+
+  notePaper.classList.add("is-changing");
+  window.setTimeout(() => {
+    noteIndex.textContent = `LỜI NHẮN ${String(selectedIndex + 1).padStart(2, "0")}`;
+    noteTitle.textContent = note.title;
+    noteCopy.textContent = note.copy;
+    notePaper.classList.remove("is-changing");
+  }, reduceMotion ? 0 : 220);
+}
+
+noteTabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => selectNote(index));
+  tab.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    const step = event.key === "ArrowRight" ? 1 : -1;
+    const nextIndex = (index + step + noteTabs.length) % noteTabs.length;
+    selectNote(nextIndex);
+    noteTabs[nextIndex].focus();
+  });
+});
 
 function createPetal(index) {
   const petal = document.createElement("span");
@@ -56,6 +124,6 @@ wishButton.addEventListener("click", () => {
   wishButton.querySelector("span").textContent = "Đã gửi yêu thương";
 
   if (!reduceMotion) {
-    Array.from({ length: 36 }, (_, index) => index).forEach((index) => createPetal(index));
+    Array.from({ length: 52 }, (_, index) => index).forEach((index) => createPetal(index));
   }
 });

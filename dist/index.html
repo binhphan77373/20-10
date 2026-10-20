@@ -17,6 +17,9 @@
   </head>
   <body>
     <a class="skip-link" href="#main-content">Bỏ qua phần mở đầu</a>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="readingProgress"></span>
+    </div>
 
     <div class="letter-gate" id="letterGate" aria-labelledby="gateTitle">
       <div class="gate-light" aria-hidden="true"></div>
@@ -43,14 +46,19 @@
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-nav page-shell">
           <a class="monogram" href="#main-content" aria-label="Về đầu trang">M</a>
-          <span>Thứ Ba, 20 tháng 10</span>
+          <nav class="hero-links" aria-label="Điều hướng chính">
+            <a href="#loi-chuc">Lá thư</a>
+            <a href="#dieu-anh-thuong">Điều anh thương</a>
+            <a href="#loi-hua">Lời hứa</a>
+          </nav>
+          <span class="hero-date">Thứ Ba, 20 tháng 10</span>
         </div>
         <div class="hero-content page-shell reveal">
           <p class="eyebrow eyebrow--light">Gửi người anh thương</p>
           <h1 id="heroTitle">Ngày hôm nay<br />dịu dàng như <em>em.</em></h1>
           <p class="hero-lead">
-            Chúc em một ngày 20/10 thật nhiều niềm vui. Và nếu hôm nay có điều gì
-            khiến em mỉm cười, anh mong mình được là một phần trong đó.
+            Chúc mừng ngày 20/10, em yêu. Cảm ơn em vì đã luôn ở bên, yêu thương
+            và chăm sóc cho anh mỗi ngày.
           </p>
           <a class="text-link text-link--light" href="#loi-chuc">
             Đọc lá thư của anh
@@ -65,6 +73,23 @@
         <div class="scroll-cue" aria-hidden="true"><span></span></div>
       </section>
 
+      <section class="love-metrics" aria-label="Những con số của yêu thương">
+        <div class="page-shell metrics-grid">
+          <div class="metric reveal">
+            <strong>01</strong>
+            <span>người thật đặc biệt</span>
+          </div>
+          <div class="metric metric--center reveal">
+            <strong>20·10</strong>
+            <span>một ngày để nói thành lời</span>
+          </div>
+          <div class="metric reveal">
+            <strong>∞</strong>
+            <span>điều khiến anh thương</span>
+          </div>
+        </div>
+      </section>
+
       <section class="letter-section section" id="loi-chuc" aria-labelledby="letterTitle">
         <div class="paper-grain" aria-hidden="true"></div>
         <div class="page-shell letter-grid">
@@ -77,28 +102,78 @@
           </div>
           <article class="letter-copy reveal">
             <p class="dropcap">
-              Có những ngày đặc biệt để người ta nói ra những điều vẫn luôn cất ở
-              trong lòng. Với anh, hôm nay là một ngày như thế.
+              Chúc mừng ngày 20/10, em yêu. ❤️
             </p>
             <p>
-              Cảm ơn em vì đã xuất hiện, mang theo sự dịu dàng, những câu chuyện không
-              đầu không cuối và cả những tiếng cười làm mọi ngày bình thường bỗng trở
-              nên đáng nhớ.
+              Cảm ơn em vì đã luôn ở bên, yêu thương anh, lo lắng và chăm sóc cho anh
+              mỗi ngày. Yêu em nhiều. ❤️
             </p>
             <p>
-              Anh không chỉ chúc em rạng rỡ trong ngày 20/10. Anh mong em luôn được
-              yêu thương, được tự do là chính mình, đủ can đảm theo đuổi điều em muốn
-              và đủ bình yên để tận hưởng từng khoảnh khắc nhỏ bé.
+              Anh chỉ muốn nói với em rằng anh rất hạnh phúc khi có em trong cuộc đời.
+              Anh mong em luôn vui vẻ, mạnh khỏe và sẽ mãi yêu anh như bây giờ, em nhé.
             </p>
             <p>
-              Còn anh, anh sẽ cố gắng trở thành người luôn đứng bên cạnh — lắng nghe
-              em, cổ vũ em và cùng em đi qua thật nhiều mùa hoa nữa.
+              Cảm ơn em vì đã xuất hiện và làm cuộc sống của anh trở nên ý nghĩa hơn
+              bao giờ hết. Mong rằng chúng ta sẽ luôn đồng hành cùng nhau, luôn yêu
+              thương nhau và chia sẻ mọi điều cùng nhau trong cuộc sống.
             </p>
             <div class="signature">
               <span>Thương em,</span>
               <strong>Anh của em</strong>
             </div>
+            <aside class="letter-postscript">
+              <span>P.S.</span>
+              Anh đã viết nhiều điều, nhưng cuối cùng vẫn muốn nói với em rằng:
+              anh yêu em rất nhiều.
+            </aside>
           </article>
+        </div>
+      </section>
+
+      <section class="memory-section section" id="dieu-anh-thuong" aria-labelledby="memoryTitle">
+        <div class="memory-date" aria-hidden="true">20</div>
+        <div class="page-shell">
+          <div class="memory-heading reveal">
+            <div>
+              <p class="eyebrow">Những điều bé xíu</p>
+              <h2 id="memoryTitle">Lại làm anh nhớ<br />thật lâu.</h2>
+            </div>
+            <p>
+              Chẳng cần một khoảnh khắc thật lớn. Đôi khi yêu thương chỉ là nhớ về
+              một ánh mắt, một câu hỏi han, hay cách em gọi tên anh.
+            </p>
+          </div>
+
+          <div class="memory-cards">
+            <article class="memory-card memory-card--1 reveal">
+              <span class="tape" aria-hidden="true"></span>
+              <small>01 / BUỔI SÁNG</small>
+              <i aria-hidden="true">☼</i>
+              <h3>Một lời chào<br />ngày mới</h3>
+              <p>Mong mỗi sáng của em đều bắt đầu bằng bình yên và một điều để chờ đợi.</p>
+            </article>
+            <article class="memory-card memory-card--2 reveal">
+              <span class="tape" aria-hidden="true"></span>
+              <small>02 / NGÀY DÀI</small>
+              <i aria-hidden="true">✦</i>
+              <h3>Một câu hỏi<br />“Em ổn không?”</h3>
+              <p>Để em biết rằng luôn có một người sẵn lòng ngồi lại và nghe em kể.</p>
+            </article>
+            <article class="memory-card memory-card--3 reveal">
+              <span class="tape" aria-hidden="true"></span>
+              <small>03 / BUỔI TỐI</small>
+              <i aria-hidden="true">☾</i>
+              <h3>Những câu chuyện<br />không đầu không cuối</h3>
+              <p>Vì được nghe em nói đôi khi đã là phần dịu dàng nhất trong ngày.</p>
+            </article>
+            <article class="memory-card memory-card--4 reveal">
+              <span class="tape" aria-hidden="true"></span>
+              <small>04 / MỖI NGÀY</small>
+              <i aria-hidden="true">♡</i>
+              <h3>Được ở cạnh<br />phiên bản thật của em</h3>
+              <p>Không cần hoàn hảo. Chỉ cần em được là em — vậy đã đủ đáng yêu rồi.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -138,7 +213,32 @@
         </div>
       </section>
 
-      <section class="moments-section section" aria-labelledby="momentsTitle">
+      <section class="gallery-section section" aria-labelledby="galleryTitle">
+        <div class="page-shell gallery-heading reveal">
+          <p class="eyebrow">Một khu vườn dành cho em</p>
+          <h2 id="galleryTitle">Mỗi cánh hoa là một<br />lời chúc thật dịu dàng.</h2>
+        </div>
+        <div class="gallery-collage page-shell">
+          <figure class="photo-panel photo-panel--wide reveal">
+            <div class="photo-crop photo-crop--1" role="img" aria-label="Hoa hồng và hoa cánh bướm dưới nắng chiều"></div>
+            <figcaption><span>01</span> Cho những ngày em rực rỡ</figcaption>
+          </figure>
+          <figure class="photo-panel photo-panel--tall reveal">
+            <div class="photo-crop photo-crop--2" role="img" aria-label="Những cánh hoa hồng trong khu vườn"></div>
+            <figcaption><span>02</span> Cho những lúc cần bình yên</figcaption>
+          </figure>
+          <figure class="photo-panel photo-panel--small reveal">
+            <div class="photo-crop photo-crop--3" role="img" aria-label="Giấy viết thư và hoa dưới ánh nắng ấm"></div>
+            <figcaption><span>03</span> Cho thật nhiều mùa hoa sau này</figcaption>
+          </figure>
+          <blockquote class="gallery-quote reveal">
+            <span aria-hidden="true">“</span>
+            <p>Điều đẹp nhất trong khu vườn này vẫn là nụ cười của em.</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="moments-section section" id="loi-hua" aria-labelledby="momentsTitle">
         <div class="page-shell moments-grid">
           <div class="moments-copy reveal">
             <p class="eyebrow">Điều anh mong</p>
@@ -153,6 +253,32 @@
             <p>“Anh chẳng hứa mọi ngày đều hoàn hảo. Nhưng anh hứa trong mỗi ngày ấy, em sẽ không một mình.”</p>
             <span>— Lời hứa nhỏ của anh</span>
           </div>
+        </div>
+      </section>
+
+      <section class="notes-section section" aria-labelledby="notesTitle">
+        <div class="page-shell notes-grid">
+          <div class="notes-intro reveal">
+            <p class="eyebrow eyebrow--light">Bốn mảnh giấy nhỏ</p>
+            <h2 id="notesTitle">Chọn một lời nhắn<br />cho hôm nay.</h2>
+            <p>Mỗi con số là một điều anh muốn nói với em. Chạm để mở nhé.</p>
+            <div class="note-tabs" role="tablist" aria-label="Chọn lời nhắn">
+              <button class="note-tab is-active" id="noteTab1" type="button" role="tab" aria-selected="true" aria-controls="notePaper" data-note="0">01</button>
+              <button class="note-tab" id="noteTab2" type="button" role="tab" aria-selected="false" aria-controls="notePaper" data-note="1" tabindex="-1">02</button>
+              <button class="note-tab" id="noteTab3" type="button" role="tab" aria-selected="false" aria-controls="notePaper" data-note="2" tabindex="-1">03</button>
+              <button class="note-tab" id="noteTab4" type="button" role="tab" aria-selected="false" aria-controls="notePaper" data-note="3" tabindex="-1">04</button>
+            </div>
+          </div>
+          <article class="note-paper reveal" id="notePaper" role="tabpanel" aria-live="polite">
+            <div class="note-pin" aria-hidden="true"></div>
+            <span id="noteIndex">LỜI NHẮN 01</span>
+            <h3 id="noteTitle">Khi em thấy mệt...</h3>
+            <p id="noteCopy">
+              Hãy cho phép mình nghỉ một chút. Em không cần lúc nào cũng mạnh mẽ;
+              phần còn lại cứ để anh ôm lấy và cùng em đi qua.
+            </p>
+            <small>mở bằng tất cả yêu thương</small>
+          </article>
         </div>
       </section>
 
@@ -171,6 +297,7 @@
           <div class="final-wish" id="finalWish" role="status" aria-live="polite">
             <span>20 · 10</span>
             <strong>Chúc em luôn xinh đẹp, hạnh phúc<br />và được yêu thật nhiều!</strong>
+            <p>Yêu em nhiều — hôm nay, ngày mai và thật nhiều ngày sau nữa.</p>
           </div>
         </div>
       </section>
